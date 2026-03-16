@@ -1,182 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Waajacu</title>
     <meta charset="UTF-8">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta http-equiv="content-language" content="en">
-    <style>        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Waajacu publishes open engineering work across safe software, custom hardware, AI systems, applied cryptography, and protocol design.">
+    <style>
+        :root {
+            --bg: #040404;
+            --bg-soft: #111111;
+            --text: #a9a9a9;
+            --text-strong: #f1ead6;
+            --gold: rgb(211, 170, 96);
+            --gold-soft: rgba(211, 170, 96, 0.18);
+            --red-soft: rgba(89, 5, 5, 0.45);
+            --line: rgba(211, 170, 96, 0.32);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: #000000;
-            color: #A9A9A9;
-            font-family: 'OCR A Std', monospace;
-            font-size: 12px;
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top left, rgba(118, 17, 17, 0.28), transparent 32rem),
+                linear-gradient(180deg, #070707 0%, #000000 100%);
+            color: var(--text);
+            font-family: "OCR A Std", monospace;
+            font-size: 13px;
         }
-        article {
-            background-color: #000000;
-            font-family: 'OCR A Std', monospace;
-            font-size: 12px;
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
         }
-        ul {
-            list-style-type: square;
+
+        a:hover,
+        a:focus-visible {
+            text-decoration: underline;
         }
-        .info_box {
-            background-color: #000000;
-            width: 30em;
-            text-indent: 2em;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
         }
-        .note_box {
-            background-color: #777777;
-            width: 30em;
-            text-indent: 2em;
+
+        p,
+        ul,
+        figure {
+            margin: 0;
         }
-        .light {
-            background-color: #000000;
-            color: #ffffff;
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
         }
-        .grayinv {
-            border-color: #777777;
-            background-color: #777777;
-            color: #000000;
+
+        .site_header {
+            margin-bottom: 28px;
         }
-        .gray {
-            background-color: #000000;
-            color: #A9A9A9;
+
+        .eyebrow {
+            margin-bottom: 12px;
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
         }
-        .gold {
-            background-color: #000000;
-            color: rgb(211, 170, 96);
+
+        h1,
+        h2 {
+            margin: 0;
+            color: var(--text-strong);
+            font-weight: 400;
         }
-        .red_gold {
-            background-color: #590505;
-            color: rgb(211, 170, 96);
+
+        h1 {
+            font-size: clamp(34px, 7vw, 64px);
+            line-height: 1;
         }
-        .black_gold {
-            background-color: #000000;
-            color: rgb(211, 170, 96);
+
+        h2 {
+            margin-bottom: 16px;
+            font-size: 14px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
         }
-        .black_red {
-            background-color: #000000;
-            color: rgb(118, 17, 17);
+
+        .lead {
+            max-width: 62rem;
+            margin-top: 14px;
+            line-height: 1.7;
         }
-        .waacamaya {
-            background-color: #000000;
-            max-width: 30em;
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .column {
+            display: grid;
+            gap: 24px;
+        }
+
+        .panel {
+            padding: 20px;
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(17, 17, 17, 0.92), rgba(0, 0, 0, 0.96));
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+
+        .panel_accent {
+            background: linear-gradient(180deg, var(--red-soft), rgba(0, 0, 0, 0.96));
+        }
+
+        .hero_image {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .hero_caption {
+            padding: 12px 16px 14px;
+            color: var(--text);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .statement_list,
+        .contact_list,
+        .stack_list,
+        .cert_list {
+            display: grid;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .statement_list li,
+        .stack_list li,
+        .cert_list li {
+            position: relative;
+            padding-left: 18px;
+            line-height: 1.5;
+        }
+
+        .statement_list li::before,
+        .stack_list li::before,
+        .cert_list li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        .contact_list li {
+            line-height: 1.6;
+        }
+
+        .label {
+            display: inline-block;
+            min-width: 88px;
+            color: var(--text-strong);
+        }
+
+        .button_row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        button {
+            border: 1px solid var(--line);
+            padding: 10px 14px;
+            background: transparent;
+            color: var(--gold);
+            font: inherit;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        button:hover,
+        button:focus-visible {
+            background: var(--gold-soft);
+        }
+
+        .counter {
+            margin-top: 12px;
+            color: var(--text-strong);
+        }
+
+        .counter strong {
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .body_copy {
+            line-height: 1.7;
+        }
+
+        .brand_mark {
+            color: var(--gold);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .cert_list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 20px;
+        }
+
+        .site_footer {
+            margin-top: 28px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 860px) {
+            .page {
+                padding: 24px 18px 40px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .cert_list {
+                grid-template-columns: 1fr;
+            }
+
+            .label {
+                display: block;
+                min-width: 0;
+            }
         }
     </style>
-    <script type='text/javascript'>
-        function getPageContents(callback,url,params) {
-            console.log(`getPageContents url ::: ${url}`);
-            let http = new XMLHttpRequest();
-            if(params!=null) {
-                http.open('POST', url, true);
-                http.setRequestHeader('Content-type', 'application/');
-            } else {
-                http.open('GET', url, true);
-            }
-            http.onreadystatechange = function() {
-                callback(http.responseText);    
-            }
-            http.send(params);
-        }
-        var homeurlfile = './src/homeurl.txt';
-        var homeurl = []
-        getPageContents(function(result) {
-            console.log(`fetch result ::: ${result}`);
-            homeurl = result.split('\n');
-            homeurl = homeurl.filter(function (el) {
-                return el != '';
-            });
-            homeurl = homeurl[0];
-            console.log(`fetch homeurl ::: ${homeurl}`);
-        }, homeurlfile, null);
-        function onreadyFun () {
-            console.log(`waka ready, with homeurl ::: ${homeurl}`);
-        }
-        window.onload = onreadyFun();
-    </script> <!-- var textFromFile = (window.URL || window.webkitURL || {}).createObjectURL || function(){}; -->
-    <script type="text/javascript">
-        function reportLucks(){ // This communicates back to home to report lucks count.
-             var http = new XMLHttpRequest();
-             var lucksurl = homeurl + '/lucks';
-             var body = {'lucks': {'poetry': 0, 'commerce': 0, 'waajacu': clicks}};
-             console.log(`homeurl ::: ${lucksurl}`);
-             http.open('POST', lucksurl, true);
-             http.setRequestHeader('Content-type', 'text/plain');
-             http.send(JSON.stringify(body));
-             return null;
-         }
-     </script>
-    <script type="text/javascript">
-        var clicks = 0;
-        function highClick() {
-            clicks += 1;
-            document.getElementById("clicks").innerHTML = clicks;
-            reportLucks();
-        };
-        function lowClick() {
-            clicks -= 1;
-            document.getElementById("clicks").innerHTML = clicks;
-            reportLucks();
-        };
-        window.onbeforeunload = reportLucks;
-        </script>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11145307028"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11145307028"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'AW-11145307028');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag("js", new Date());
+        gtag("config", "AW-11145307028");
+    </script>
+</head>
 <body>
-    <div style="display: flex; justify-content: flex-start;">
-        <div>
-            <img src="./src/waacamaya_w1.jpg" title="This ilustration was done by a machine at deepdreamgenerator.com/" class="waacamaya"></img>
-            <article class = "info_box red_gold">
-                <p>We build safe Software. </p>
-                <p>Design Custom Hardware. </p>
-                <p>Waajacu is an Open Source Foundation. </p>
-            </article>
-            <button type="button" onClick="highClick()">wish luck</button>
-            <button type="button" onClick="lowClick()">decline</button>
-            <p>lucks: <a id="clicks">0</a></p>        
-            <article>
-            </article>
-            <li>contact: contact@waajacu.com </li>
-            <li>support: paypal.me/savethebeesandseeds </li>
-            <li>location: Colombia </li>
-        </div>
-        <div>
-            <article class = "info_box black_gold">
-                <p>Artificial Intelligence. </p>
-                <p>Computational Diplomacy. </p>
-                <p>Natural Language Processing. </p>
-                <p>Modeling and Optimization. </p>
-                <p>Applied Cryptography. </p>
-                <p>Conflict Resolution. </p>
-                <p>Secure Multiparty Computation. </p>
-                <p>Adversarial Cooperation. </p>
-                <p>Minimal Conflict Optimization. </p>
-                <p>Data Analytics. </p>
-                <p>Optimal Control. </p>
-                <p>Hardware Design. </p>
-                <p>... </p>
-                <p>ISO Certification Consultants Society. </p>
-            </article>
-            <ul class = "info_box black_gold">
-                <li>ISO 9001. </li>
-                <li>ISO 14001. </li>
-                <li>ISO/IEC 25010. </li>
-                <li>ISO/IEC 27001. </li>
-                <li>ISO/IEC 15504. </li>
-                <li>ISO 47001. </li>
-                <li>ISO 50001. </li>
-                <li>ISO 22000. </li>
-                <li>ISO 22301. </li>
-                <li>ISO 23000. </li>
-                <li>ISO 31000.</li>
-            </ul>
-        </div>
+    <div class="page">
+        <header class="site_header">
+            <p class="eyebrow">WAAJACU TM</p>
+            <h1>Waajacu</h1>
+            <p class="lead">
+                Open engineering for safe software, custom hardware, artificial
+                intelligence, applied cryptography, and protocol design.
+            </p>
+            <p class="lead">
+                This page acts as a public source marker for work published under
+                the Waajacu name.
+            </p>
+        </header>
+
+        <main class="layout">
+            <div class="column">
+                <figure class="panel hero_image">
+                    <img
+                        src="./src/waacamaya_w1.jpg"
+                        alt="Waajacu illustration of a macaw"
+                        title="This illustration was generated at deepdreamgenerator.com.">
+                    <figcaption class="hero_caption">
+                        Illustration generated at deepdreamgenerator.com.
+                    </figcaption>
+                </figure>
+
+                <section class="panel panel_accent" aria-labelledby="mission_title">
+                    <h2 id="mission_title">What We Build</h2>
+                    <ul class="statement_list">
+                        <li>Safe software.</li>
+                        <li>Custom hardware.</li>
+                        <li>Open systems work published under the WAAJACU source identity.</li>
+                    </ul>
+                </section>
+
+                <section class="panel" aria-labelledby="signal_title">
+                    <h2 id="signal_title">Signal</h2>
+                    <div class="button_row">
+                        <button type="button" id="wish_luck">Wish Luck</button>
+                        <button type="button" id="decline_luck">Decline</button>
+                    </div>
+                    <p class="counter">
+                        Lucks recorded: <strong id="clicks">0</strong>
+                    </p>
+                </section>
+
+                <section class="panel" aria-labelledby="contact_title">
+                    <h2 id="contact_title">Contact</h2>
+                    <ul class="contact_list">
+                        <li>
+                            <span class="label">Email</span>
+                            <a href="mailto:contact@waajacu.com">contact@waajacu.com</a>
+                        </li>
+                        <li>
+                            <span class="label">Support</span>
+                            <a href="https://paypal.me/savethebeesandseeds">paypal.me/savethebeesandseeds</a>
+                        </li>
+                        <li>
+                            <span class="label">Location</span>
+                            <span>Colombia</span>
+                        </li>
+                        <li>
+                            <span class="label">GitHub</span>
+                            <a href="https://github.com/savethebeesandseeds">savethebeesandseeds</a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="column">
+                <section class="panel" aria-labelledby="focus_title">
+                    <h2 id="focus_title">Focus Areas</h2>
+                    <ul class="stack_list">
+                        <li>Artificial intelligence.</li>
+                        <li>Computational diplomacy.</li>
+                        <li>Natural language processing.</li>
+                        <li>Modeling and optimization.</li>
+                        <li>Applied cryptography.</li>
+                        <li>Conflict resolution.</li>
+                        <li>Secure multiparty computation.</li>
+                        <li>Adversarial cooperation.</li>
+                        <li>Minimal conflict optimization.</li>
+                        <li>Data analytics.</li>
+                        <li>Optimal control.</li>
+                        <li>Hardware design.</li>
+                    </ul>
+                </section>
+
+                <section class="panel" aria-labelledby="standards_title">
+                    <h2 id="standards_title">Standards Work</h2>
+                    <p class="body_copy">
+                        Consulting and systems thinking shaped by operational
+                        quality, security, auditability, and long-term maintainability.
+                    </p>
+                    <ul class="cert_list">
+                        <li>ISO 9001</li>
+                        <li>ISO 14001</li>
+                        <li>ISO/IEC 25010</li>
+                        <li>ISO/IEC 27001</li>
+                        <li>ISO/IEC 15504</li>
+                        <li>ISO 47001</li>
+                        <li>ISO 50001</li>
+                        <li>ISO 22000</li>
+                        <li>ISO 22301</li>
+                        <li>ISO 23000</li>
+                        <li>ISO 31000</li>
+                    </ul>
+                </section>
+
+                <section class="panel body_copy" aria-labelledby="trademark_title">
+                    <h2 id="trademark_title">Trademark Notice</h2>
+                    <p>
+                        <span class="brand_mark">WAAJACU TM</span> identifies the
+                        official publications, releases, and services published by
+                        Waajacu.
+                    </p>
+                    <p>
+                        The software and documentation published under Waajacu may
+                        be distributed under their stated open-source licenses, but
+                        those licenses do not grant rights in names, logos, project
+                        branding, or source identity.
+                    </p>
+                    <p>
+                        Official source identity for this website and project
+                        includes <a href="https://waajacu.com">waajacu.com</a> and
+                        the GitHub account
+                        <a href="https://github.com/savethebeesandseeds">savethebeesandseeds</a>.
+                    </p>
+                    <p>
+                        See <a href="./TRADEMARKS.md">TRADEMARKS.md</a> in the
+                        repository for full trademark usage guidance.
+                    </p>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site_footer">
+            <p>
+                Open publication does not waive source identity. Use the name
+                truthfully, and do not present unofficial forks or services as the
+                official Waajacu source.
+            </p>
+        </footer>
     </div>
+
+    <script>
+        let clicks = 0;
+        let homeurl = "";
+
+        function renderClicks() {
+            const clicksNode = document.getElementById("clicks");
+
+            if (clicksNode) {
+                clicksNode.textContent = String(clicks);
+            }
+        }
+
+        async function resolveHomeUrl() {
+            const candidates = ["./homeurl.txt", "./src/homeurl.txt"];
+
+            for (const candidate of candidates) {
+                try {
+                    const response = await fetch(candidate, {cache: "no-store"});
+
+                    if (!response.ok) {
+                        continue;
+                    }
+
+                    const text = await response.text();
+                    const firstLine = text
+                        .split(/\r?\n/)
+                        .map((line) => line.trim())
+                        .find((line) => line.length > 0);
+
+                    if (firstLine) {
+                        homeurl = firstLine;
+                        console.log(`homeurl ::: ${homeurl}`);
+                        return;
+                    }
+                } catch (error) {
+                    console.log(`homeurl lookup skipped for ${candidate}`);
+                }
+            }
+
+            console.log("homeurl unavailable");
+        }
+
+        async function reportLucks() {
+            if (!homeurl) {
+                return;
+            }
+
+            const lucksurl = `${homeurl}/lucks`;
+            const payload = JSON.stringify({
+                lucks: {
+                    poetry: 0,
+                    commerce: 0,
+                    waajacu: clicks
+                }
+            });
+
+            if (navigator.sendBeacon) {
+                const beaconPayload = new Blob([payload], {type: "text/plain"});
+
+                if (navigator.sendBeacon(lucksurl, beaconPayload)) {
+                    return;
+                }
+            }
+
+            try {
+                await fetch(lucksurl, {
+                    method: "POST",
+                    headers: {"Content-Type": "text/plain"},
+                    body: payload,
+                    keepalive: true
+                });
+            } catch (error) {
+                console.log("reportLucks failed");
+            }
+        }
+
+        function updateClicks(delta) {
+            clicks += delta;
+            renderClicks();
+            void reportLucks();
+        }
+
+        window.addEventListener("beforeunload", () => {
+            void reportLucks();
+        });
+
+        window.addEventListener("load", async () => {
+            renderClicks();
+
+            const wishButton = document.getElementById("wish_luck");
+            const declineButton = document.getElementById("decline_luck");
+
+            if (wishButton) {
+                wishButton.addEventListener("click", () => {
+                    updateClicks(1);
+                });
+            }
+
+            if (declineButton) {
+                declineButton.addEventListener("click", () => {
+                    updateClicks(-1);
+                });
+            }
+
+            await resolveHomeUrl();
+            console.log(`waka ready, with homeurl ::: ${homeurl || "unavailable"}`);
+        });
+    </script>
 </body>
+</html>
