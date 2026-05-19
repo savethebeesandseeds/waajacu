@@ -413,6 +413,45 @@
             font-size: 15px;
         }
 
+        .fit_layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.74fr) minmax(320px, 1fr);
+            gap: 58px;
+            align-items: start;
+        }
+
+        .fit_actions {
+            margin-top: 26px;
+        }
+
+        .fit_list {
+            border-top: 1px solid var(--line);
+        }
+
+        .fit_item {
+            display: grid;
+            grid-template-columns: 170px minmax(0, 1fr);
+            gap: 24px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .fit_item strong {
+            color: var(--gold-dark);
+            font-size: 15px;
+            line-height: 1.25;
+        }
+
+        .fit_item span {
+            color: var(--muted);
+        }
+
+        .fit_note {
+            margin-top: 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
         .method_grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -574,7 +613,8 @@
             .service_grid,
             .method_grid,
             .assurance_layout,
-            .contact_layout {
+            .contact_layout,
+            .fit_layout {
                 grid-template-columns: 1fr;
             }
 
@@ -667,6 +707,11 @@
                 font-size: 16px;
             }
 
+            .fit_item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
             .standards_table th,
             .standards_table td,
             .contact_row {
@@ -717,6 +762,7 @@
                 </a>
                 <nav class="nav" aria-label="Primary navigation">
                     <a href="#services">Services</a>
+                    <a href="#when-to-contact">When to write</a>
                     <a href="#method">Method</a>
                     <a href="#assurance">Trust</a>
                     <a href="#contact">Contact</a>
@@ -879,7 +925,50 @@
             </div>
         </section>
 
-        <section class="section section_white" id="method">
+        <section class="section section_white" id="when-to-contact">
+            <div class="section_inner fit_layout">
+                <div class="section_intro">
+                    <p class="kicker">When to contact Waajacu</p>
+                    <h2>Write when the problem is technical, ambiguous, and worth doing carefully.</h2>
+                    <p>
+                        This page can stay simple. The right message is one with a
+                        concrete system, decision, risk, or prototype that needs
+                        clear technical reasoning before more time or money is
+                        committed.
+                    </p>
+                    <div class="hero_actions fit_actions">
+                        <a class="button button_primary" href="mailto:contact@waajacu.com?subject=Waajacu%20project%20context&body=System%20or%20project%3A%0A%0ADecision%20or%20risk%3A%0A%0AWhat%20you%20need%20next%3A%0A">Send project context</a>
+                    </div>
+                </div>
+
+                <div>
+                    <ul class="fit_list">
+                        <li class="fit_item">
+                            <strong>AI or NLP workflow</strong>
+                            <span>You need a model-assisted document, search, review, or decision workflow designed, evaluated, or made safer.</span>
+                        </li>
+                        <li class="fit_item">
+                            <strong>Cryptography or security architecture</strong>
+                            <span>You need independent thinking about keys, protocols, trust boundaries, privacy assumptions, or implementation risk.</span>
+                        </li>
+                        <li class="fit_item">
+                            <strong>Secure software or hardware</strong>
+                            <span>You are building a product, device, integration, or internal tool where correctness and maintainability matter.</span>
+                        </li>
+                        <li class="fit_item">
+                            <strong>Technical plan before commitment</strong>
+                            <span>You need a concise review, feasibility path, risk map, or implementation plan before investing deeper.</span>
+                        </li>
+                    </ul>
+                    <p class="fit_note">
+                        A short email with context is enough. If there is no fit,
+                        the response can stay brief and direct.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section_light" id="method">
             <div class="section_inner">
                 <div class="section_intro">
                     <p class="kicker">Method</p>
