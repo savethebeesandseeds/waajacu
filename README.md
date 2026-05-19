@@ -17,7 +17,7 @@ standards-oriented systems practice.
 
 - [`index.html`](index.html): current public homepage.
 - [`src/waacamaya_w1.jpg`](src/waacamaya_w1.jpg): homepage illustration.
-- [`com/index.html`](com/index.html): earlier work-in-progress index material.
+- [`favicon.ico`](favicon.ico): browser favicon generated from the homepage illustration.
 
 ## Local Preview
 
