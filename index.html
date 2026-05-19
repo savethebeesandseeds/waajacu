@@ -1,244 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Waajacu</title>
+    <title>Waajacu | Safe Software, Custom Hardware, AI Systems</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Waajacu publishes open engineering work across safe software, custom hardware, AI systems, applied cryptography, and protocol design.">
+    <meta name="description" content="Waajacu provides engineering support for safer software, custom hardware, AI systems, applied cryptography, and standards-oriented technical work.">
+    <meta property="og:title" content="Waajacu">
+    <meta property="og:description" content="Engineering support for safer software, custom hardware, AI systems, and applied cryptography.">
+    <meta property="og:image" content="https://waajacu.com/src/waacamaya_w1.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://waajacu.com/">
+    <link rel="canonical" href="https://waajacu.com/">
+    <link rel="icon" href="./src/waacamaya_w1.jpg" type="image/jpeg">
     <style>
         :root {
-            --bg: #040404;
-            --bg-soft: #111111;
-            --text: #a9a9a9;
-            --text-strong: #f1ead6;
-            --gold: rgb(211, 170, 96);
-            --gold-soft: rgba(211, 170, 96, 0.18);
-            --red-soft: rgba(89, 5, 5, 0.45);
-            --line: rgba(211, 170, 96, 0.32);
+            --night: #070706;
+            --ink: #18140f;
+            --muted: #60594e;
+            --paper: #f5efe4;
+            --paper-strong: #fffaf0;
+            --line: rgba(24, 20, 15, 0.16);
+            --line-light: rgba(255, 250, 240, 0.22);
+            --gold: #c89b45;
+            --gold-dark: #8a6326;
+            --copper: #8b3d2b;
+            --green: #264f45;
+            --blue: #254c63;
+            --white: #fffaf0;
         }
 
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            min-height: 100vh;
-            background:
-                radial-gradient(circle at top left, rgba(118, 17, 17, 0.28), transparent 32rem),
-                linear-gradient(180deg, #070707 0%, #000000 100%);
-            color: var(--text);
-            font-family: "OCR A Std", monospace;
-            font-size: 13px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
         }
 
         a {
-            color: var(--gold);
-            text-decoration: none;
+            color: inherit;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.18em;
         }
 
         a:hover,
         a:focus-visible {
-            text-decoration: underline;
+            color: var(--gold-dark);
         }
 
         img {
             display: block;
-            width: 100%;
+            max-width: 100%;
             height: auto;
         }
 
         p,
-        ul,
-        figure {
-            margin: 0;
-        }
-
-        .page {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 40px 24px 64px;
-        }
-
-        .site_header {
-            margin-bottom: 28px;
-        }
-
-        .eyebrow {
-            margin-bottom: 12px;
-            color: var(--gold);
-            font-size: 11px;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-        }
-
         h1,
-        h2 {
+        h2,
+        h3,
+        ul,
+        figure,
+        dl,
+        dd {
             margin: 0;
-            color: var(--text-strong);
-            font-weight: 400;
         }
 
-        h1 {
-            font-size: clamp(34px, 7vw, 64px);
-            line-height: 1;
-        }
-
-        h2 {
-            margin-bottom: 16px;
-            font-size: 14px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .lead {
-            max-width: 62rem;
-            margin-top: 14px;
-            line-height: 1.7;
-        }
-
-        .layout {
-            display: grid;
-            grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
-            gap: 24px;
-            align-items: start;
-        }
-
-        .column {
-            display: grid;
-            gap: 24px;
-        }
-
-        .panel {
-            padding: 20px;
-            border: 1px solid var(--line);
-            background: linear-gradient(180deg, rgba(17, 17, 17, 0.92), rgba(0, 0, 0, 0.96));
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
-        }
-
-        .panel_accent {
-            background: linear-gradient(180deg, var(--red-soft), rgba(0, 0, 0, 0.96));
-        }
-
-        .hero_image {
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .hero_caption {
-            padding: 12px 16px 14px;
-            color: var(--text);
-            font-size: 11px;
-            line-height: 1.5;
-        }
-
-        .statement_list,
-        .contact_list,
-        .stack_list,
-        .cert_list {
-            display: grid;
-            gap: 10px;
+        ul {
             padding: 0;
             list-style: none;
         }
 
-        .statement_list li,
-        .stack_list li,
-        .cert_list li {
-            position: relative;
-            padding-left: 18px;
-            line-height: 1.5;
-        }
-
-        .statement_list li::before,
-        .stack_list li::before,
-        .cert_list li::before {
-            content: ">";
+        .skip_link {
             position: absolute;
-            left: 0;
-            color: var(--gold);
-        }
-
-        .contact_list li {
-            line-height: 1.6;
-        }
-
-        .label {
-            display: inline-block;
-            min-width: 88px;
-            color: var(--text-strong);
-        }
-
-        .button_row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        button {
-            border: 1px solid var(--line);
+            left: 16px;
+            top: 16px;
+            z-index: 10;
+            transform: translateY(-140%);
             padding: 10px 14px;
-            background: transparent;
-            color: var(--gold);
-            font: inherit;
-            letter-spacing: 0.12em;
+            background: var(--white);
+            color: var(--ink);
+            border: 1px solid var(--line);
+        }
+
+        .skip_link:focus {
+            transform: translateY(0);
+        }
+
+        .hero {
+            min-height: 76vh;
+            min-height: 76svh;
+            color: var(--white);
+            background:
+                linear-gradient(90deg, rgba(7, 7, 6, 0.96) 0%, rgba(7, 7, 6, 0.82) 48%, rgba(7, 7, 6, 0.42) 100%),
+                url("./src/waacamaya_w1.jpg");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .hero_shell,
+        .section_inner,
+        .footer_inner {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .hero_shell {
+            min-height: 76vh;
+            min-height: 76svh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            gap: 36px;
+            padding: 24px 0 38px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--line-light);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: "OCR A Std", "Courier New", monospace;
+            font-size: 14px;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        button:hover,
-        button:focus-visible {
-            background: var(--gold-soft);
-        }
-
-        .counter {
-            margin-top: 12px;
-            color: var(--text-strong);
-        }
-
-        .counter strong {
-            color: var(--gold);
-            font-weight: 400;
-        }
-
-        .body_copy {
-            line-height: 1.7;
+            text-decoration: none;
         }
 
         .brand_mark {
-            color: var(--gold);
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            white-space: nowrap;
+            width: 12px;
+            height: 12px;
+            background: var(--gold);
+            box-shadow: 0 0 0 6px rgba(200, 155, 69, 0.12);
         }
 
-        .cert_list {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px 20px;
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            color: rgba(255, 250, 240, 0.82);
+            font-size: 14px;
+        }
+
+        .nav a {
+            text-decoration: none;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .hero_content {
+            align-self: center;
+            max-width: 760px;
+        }
+
+        .kicker {
+            color: var(--gold);
+            font-family: "OCR A Std", "Courier New", monospace;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin-top: 18px;
+            font-size: 72px;
+            line-height: 0.98;
+            font-weight: 700;
+        }
+
+        .hero_lead {
+            max-width: 680px;
+            margin-top: 24px;
+            color: rgba(255, 250, 240, 0.9);
+            font-size: 22px;
+            line-height: 1.45;
+        }
+
+        .hero_summary {
+            max-width: 620px;
+            margin-top: 18px;
+            color: rgba(255, 250, 240, 0.72);
+        }
+
+        .hero_actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 18px;
+            border: 1px solid currentColor;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-decoration: none;
+        }
+
+        .button_primary {
+            background: var(--ink);
+            color: var(--white);
+            border-color: var(--ink);
+        }
+
+        .button_secondary {
+            color: var(--ink);
+            border-color: var(--line);
+        }
+
+        .hero .button_primary {
+            background: var(--white);
+            color: var(--ink);
+            border-color: var(--white);
+        }
+
+        .hero .button_secondary {
+            color: var(--white);
+            border-color: var(--line-light);
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            color: var(--ink);
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .trust_strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            border-top: 1px solid var(--line-light);
+            border-bottom: 1px solid var(--line-light);
+            background: rgba(7, 7, 6, 0.46);
+        }
+
+        .trust_item {
+            padding: 16px 18px;
+            border-right: 1px solid var(--line-light);
+        }
+
+        .trust_item:last-child {
+            border-right: 0;
+        }
+
+        .trust_item strong {
+            display: block;
+            color: var(--white);
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .trust_item span {
+            display: block;
+            margin-top: 4px;
+            color: rgba(255, 250, 240, 0.72);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .section {
+            padding: 78px 0;
+        }
+
+        .section_light {
+            background: var(--paper);
+        }
+
+        .section_white {
+            background: var(--paper-strong);
+        }
+
+        .section_dark {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .section_intro {
+            max-width: 760px;
+            margin-bottom: 34px;
+        }
+
+        .section_intro h2 {
+            margin-top: 10px;
+            font-size: 40px;
+            line-height: 1.1;
+        }
+
+        .section_intro p {
+            margin-top: 16px;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .section_dark .section_intro p {
+            color: rgba(255, 250, 240, 0.72);
+        }
+
+        .service_grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .service_card {
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: var(--paper-strong);
+        }
+
+        .service_card:nth-child(2) {
+            border-top: 5px solid var(--blue);
+        }
+
+        .service_card:nth-child(3) {
+            border-top: 5px solid var(--copper);
+        }
+
+        .service_card:first-child {
+            border-top: 5px solid var(--gold);
+        }
+
+        .service_card h3 {
+            margin-top: 12px;
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        .service_card p {
+            margin-top: 16px;
+            color: var(--muted);
+        }
+
+        .card_label {
+            color: var(--gold-dark);
+            font-family: "OCR A Std", "Courier New", monospace;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .deliverables {
+            display: grid;
+            gap: 8px;
+            margin-top: 24px;
+            color: var(--ink);
+            font-size: 14px;
+        }
+
+        .deliverables li {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .deliverables li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.72em;
+            width: 7px;
+            height: 7px;
+            background: var(--gold);
+        }
+
+        .method_grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 28px;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .method_step {
+            padding: 26px 0;
+            border-right: 1px solid var(--line);
+        }
+
+        .method_step:last-child {
+            border-right: 0;
+        }
+
+        .method_step span {
+            color: var(--copper);
+            font-family: "OCR A Std", "Courier New", monospace;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .method_step h3 {
+            margin-top: 14px;
+            font-size: 21px;
+            line-height: 1.2;
+        }
+
+        .method_step p {
+            margin-top: 12px;
+            padding-right: 20px;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .assurance_layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+            gap: 56px;
+            align-items: start;
+        }
+
+        .assurance_copy {
+            display: grid;
+            gap: 24px;
+            color: rgba(255, 250, 240, 0.82);
+            font-size: 18px;
+        }
+
+        .assurance_list {
+            border-top: 1px solid rgba(255, 250, 240, 0.22);
+        }
+
+        .assurance_list li {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 250, 240, 0.22);
+        }
+
+        .assurance_list strong {
+            display: block;
+            color: var(--white);
+            font-size: 16px;
+        }
+
+        .assurance_list span {
+            display: block;
+            margin-top: 5px;
+            color: rgba(255, 250, 240, 0.7);
+            font-size: 14px;
+        }
+
+        .standards_table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--ink);
+        }
+
+        .standards_table th,
+        .standards_table td {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .standards_table th {
+            width: 190px;
+            color: var(--gold-dark);
+            font-family: "OCR A Std", "Courier New", monospace;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .contact_layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+            gap: 56px;
+            align-items: start;
+        }
+
+        .contact_panel {
+            border-top: 1px solid var(--line);
+        }
+
+        .contact_row {
+            display: grid;
+            grid-template-columns: 120px minmax(0, 1fr);
+            gap: 18px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .contact_row dt {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .contact_row dd {
+            overflow-wrap: anywhere;
+            font-weight: 700;
+        }
+
+        .source_note {
+            margin-top: 26px;
+            color: var(--muted);
+            font-size: 14px;
         }
 
         .site_footer {
-            margin-top: 28px;
-            color: var(--text);
-            line-height: 1.7;
+            background: var(--night);
+            color: rgba(255, 250, 240, 0.72);
+            padding: 30px 0;
+            font-size: 14px;
         }
 
-        @media (max-width: 860px) {
-            .page {
-                padding: 24px 18px 40px;
+        .footer_inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .site_footer a {
+            color: var(--white);
+        }
+
+        @media (max-width: 940px) {
+            h1 {
+                font-size: 56px;
             }
 
-            .layout {
+            .hero_lead {
+                font-size: 20px;
+            }
+
+            .service_grid,
+            .method_grid,
+            .assurance_layout,
+            .contact_layout {
                 grid-template-columns: 1fr;
             }
 
-            .cert_list {
+            .service_card {
+                min-height: 0;
+            }
+
+            .method_grid {
+                gap: 0;
+            }
+
+            .method_step {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .method_step:last-child {
+                border-bottom: 0;
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                font-size: 15px;
+            }
+
+            .hero_shell,
+            .section_inner,
+            .footer_inner {
+                width: min(100% - 32px, 1180px);
+            }
+
+            .hero,
+            .hero_shell {
+                min-height: auto;
+            }
+
+            .hero_shell {
+                gap: 28px;
+                padding: 18px 0 30px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            h1 {
+                font-size: 44px;
+            }
+
+            .hero_lead {
+                font-size: 18px;
+            }
+
+            .hero_actions {
+                display: grid;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .trust_strip {
                 grid-template-columns: 1fr;
             }
 
-            .label {
+            .trust_item {
+                padding: 13px 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line-light);
+            }
+
+            .trust_item:last-child {
+                border-bottom: 0;
+            }
+
+            .section {
+                padding: 56px 0;
+            }
+
+            #services {
+                padding-top: 24px;
+            }
+
+            .section_intro h2 {
+                font-size: 32px;
+            }
+
+            .section_intro p,
+            .assurance_copy {
+                font-size: 16px;
+            }
+
+            .standards_table th,
+            .standards_table td,
+            .contact_row {
                 display: block;
-                min-width: 0;
+            }
+
+            .standards_table th {
+                width: auto;
+                padding-bottom: 4px;
+                border-bottom: 0;
+            }
+
+            .standards_table td {
+                padding-top: 0;
+            }
+
+            .contact_row dt {
+                margin-bottom: 4px;
+            }
+
+            .footer_inner {
+                display: grid;
             }
         }
     </style>
@@ -255,258 +688,310 @@
     </script>
 </head>
 <body>
-    <div class="page">
-        <header class="site_header">
-            <p class="eyebrow">WAAJACU TM</p>
-            <h1>Waajacu</h1>
-            <p class="lead">
-                Open engineering for safe software, custom hardware, artificial
-                intelligence, applied cryptography, and protocol design.
-            </p>
-            <p class="lead">
-                This page acts as a public source marker for work published under
-                the Waajacu name.
-            </p>
-        </header>
+    <a class="skip_link" href="#main">Skip to content</a>
 
-        <main class="layout">
-            <div class="column">
-                <figure class="panel hero_image">
-                    <img
-                        src="./src/waacamaya_w1.jpg"
-                        alt="Waajacu illustration of a macaw"
-                        title="This illustration was generated at deepdreamgenerator.com.">
-                    <figcaption class="hero_caption">
-                        Illustration generated at deepdreamgenerator.com.
-                    </figcaption>
-                </figure>
+    <header class="hero">
+        <div class="hero_shell">
+            <div class="topbar">
+                <a class="brand" href="https://waajacu.com" aria-label="Waajacu home">
+                    <span class="brand_mark" aria-hidden="true"></span>
+                    <span>WAAJACU TM</span>
+                </a>
+                <nav class="nav" aria-label="Primary navigation">
+                    <a href="#services">Services</a>
+                    <a href="#method">Method</a>
+                    <a href="#assurance">Trust</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
 
-                <section class="panel panel_accent" aria-labelledby="mission_title">
-                    <h2 id="mission_title">What We Build</h2>
-                    <ul class="statement_list">
-                        <li>Safe software.</li>
-                        <li>Custom hardware.</li>
-                        <li>Open systems work published under the WAAJACU source identity.</li>
-                    </ul>
-                </section>
+            <div class="hero_content">
+                <p class="kicker">Official source | waajacu.com</p>
+                <h1>Waajacu</h1>
+                <p class="hero_lead">
+                    Engineering support for safer software, custom hardware, AI
+                    systems, and applied cryptography.
+                </p>
+                <p class="hero_summary">
+                    We help turn ambiguous technical work into documented plans,
+                    tested interfaces, and maintainable systems with clear source
+                    identity.
+                </p>
+                <div class="hero_actions" aria-label="Primary actions">
+                    <a class="button button_primary" href="mailto:contact@waajacu.com?subject=Waajacu%20project%20inquiry">Start a technical conversation</a>
+                    <a class="button button_secondary" href="#method">Review the method</a>
+                </div>
+            </div>
 
-                <section class="panel" aria-labelledby="signal_title">
-                    <h2 id="signal_title">Signal</h2>
-                    <div class="button_row">
-                        <button type="button" id="wish_luck">Wish Luck</button>
-                        <button type="button" id="decline_luck">Decline</button>
+            <div class="trust_strip" aria-label="Trust signals">
+                <div class="trust_item">
+                    <strong>Public source identity</strong>
+                    <span>waajacu.com and GitHub account savethebeesandseeds.</span>
+                </div>
+                <div class="trust_item">
+                    <strong>Standards-aware work</strong>
+                    <span>Quality, security, maintainability, and audit readiness.</span>
+                </div>
+                <div class="trust_item">
+                    <strong>Practical delivery</strong>
+                    <span>Clear scope, visible decisions, and artifacts clients can use.</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="section section_light" id="services">
+            <div class="section_inner">
+                <div class="section_intro">
+                    <p class="kicker">Services</p>
+                    <h2>Serious technical work needs a serious interface.</h2>
+                    <p>
+                        Waajacu focuses on engineering problems where trust is
+                        earned through clarity: what is being built, what risks
+                        exist, and what evidence shows the work is ready.
+                    </p>
+                </div>
+
+                <div class="service_grid">
+                    <article class="service_card">
+                        <div>
+                            <p class="card_label">Software assurance</p>
+                            <h3>Safer systems and maintainable code paths.</h3>
+                            <p>
+                                Architecture reviews, implementation support,
+                                interface hardening, and practical plans for
+                                reducing operational risk.
+                            </p>
+                        </div>
+                        <ul class="deliverables">
+                            <li>Technical review notes</li>
+                            <li>Risk and mitigation map</li>
+                            <li>Implementation-ready tasks</li>
+                        </ul>
+                    </article>
+
+                    <article class="service_card">
+                        <div>
+                            <p class="card_label">AI and language systems</p>
+                            <h3>Models, workflows, and evaluation that can be explained.</h3>
+                            <p>
+                                NLP, decision support, data workflows, and AI
+                                integrations built with explicit assumptions and
+                                measurable behavior.
+                            </p>
+                        </div>
+                        <ul class="deliverables">
+                            <li>Evaluation criteria</li>
+                            <li>Prompt and workflow design</li>
+                            <li>Operational documentation</li>
+                        </ul>
+                    </article>
+
+                    <article class="service_card">
+                        <div>
+                            <p class="card_label">Hardware and protocols</p>
+                            <h3>Custom devices, secure protocols, and integration plans.</h3>
+                            <p>
+                                Hardware design, applied cryptography, embedded
+                                constraints, and protocol-level reasoning for
+                                systems that must be understood end to end.
+                            </p>
+                        </div>
+                        <ul class="deliverables">
+                            <li>System constraints</li>
+                            <li>Threat and trust boundaries</li>
+                            <li>Prototype path</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section_white" id="method">
+            <div class="section_inner">
+                <div class="section_intro">
+                    <p class="kicker">Method</p>
+                    <h2>A clear operating model before code, claims, or commitments.</h2>
+                    <p>
+                        The work is organized so clients can evaluate progress
+                        without depending on vague promises or hidden context.
+                    </p>
+                </div>
+
+                <div class="method_grid" aria-label="Waajacu method">
+                    <article class="method_step">
+                        <span>01</span>
+                        <h3>Establish source of truth.</h3>
+                        <p>
+                            Define the official channels, project goals, ownership,
+                            and constraints before delivery begins.
+                        </p>
+                    </article>
+
+                    <article class="method_step">
+                        <span>02</span>
+                        <h3>Map the risks.</h3>
+                        <p>
+                            Identify security, quality, dependency, data, and
+                            maintenance risks in language that can be acted on.
+                        </p>
+                    </article>
+
+                    <article class="method_step">
+                        <span>03</span>
+                        <h3>Build in verifiable units.</h3>
+                        <p>
+                            Ship work in small increments with reviewable decisions,
+                            implementation notes, and explicit acceptance criteria.
+                        </p>
+                    </article>
+
+                    <article class="method_step">
+                        <span>04</span>
+                        <h3>Leave useful artifacts.</h3>
+                        <p>
+                            Deliver documentation, source references, and next-step
+                            plans that remain useful after the engagement ends.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section_dark" id="assurance">
+            <div class="section_inner assurance_layout">
+                <div>
+                    <div class="section_intro">
+                        <p class="kicker">Trust</p>
+                        <h2>Trust is treated as an engineering requirement.</h2>
                     </div>
-                    <p class="counter">
-                        Lucks recorded: <strong id="clicks">0</strong>
-                    </p>
-                </section>
+                    <div class="assurance_copy">
+                        <p>
+                            Serious work needs more than a polished screen. It
+                            needs clear identity, stable communication, documented
+                            reasoning, and a way for others to inspect what was
+                            decided.
+                        </p>
+                        <p>
+                            Waajacu combines open publication with practical
+                            delivery discipline: visible scope, traceable changes,
+                            and language suitable for technical and operational
+                            review.
+                        </p>
+                    </div>
+                </div>
 
-                <section class="panel" aria-labelledby="contact_title">
-                    <h2 id="contact_title">Contact</h2>
-                    <ul class="contact_list">
-                        <li>
-                            <span class="label">Email</span>
-                            <a href="mailto:contact@waajacu.com">contact@waajacu.com</a>
-                        </li>
-                        <li>
-                            <span class="label">Support</span>
-                            <a href="https://paypal.me/savethebeesandseeds">paypal.me/savethebeesandseeds</a>
-                        </li>
-                        <li>
-                            <span class="label">Location</span>
-                            <span>Colombia</span>
-                        </li>
-                        <li>
-                            <span class="label">GitHub</span>
-                            <a href="https://github.com/savethebeesandseeds">savethebeesandseeds</a>
-                        </li>
-                    </ul>
-                </section>
+                <ul class="assurance_list">
+                    <li>
+                        <strong>Official identity</strong>
+                        <span>Source identity is tied to waajacu.com and savethebeesandseeds.</span>
+                    </li>
+                    <li>
+                        <strong>Trademark clarity</strong>
+                        <span>Public use guidance is documented in TRADEMARKS.md.</span>
+                    </li>
+                    <li>
+                        <strong>Security posture</strong>
+                        <span>Risks, trust boundaries, and operational assumptions are written down.</span>
+                    </li>
+                    <li>
+                        <strong>Maintainability</strong>
+                        <span>Work is structured so another competent engineer can continue it.</span>
+                    </li>
+                </ul>
             </div>
+        </section>
 
-            <div class="column">
-                <section class="panel" aria-labelledby="focus_title">
-                    <h2 id="focus_title">Focus Areas</h2>
-                    <ul class="stack_list">
-                        <li>Artificial intelligence.</li>
-                        <li>Computational diplomacy.</li>
-                        <li>Natural language processing.</li>
-                        <li>Modeling and optimization.</li>
-                        <li>Applied cryptography.</li>
-                        <li>Conflict resolution.</li>
-                        <li>Secure multiparty computation.</li>
-                        <li>Adversarial cooperation.</li>
-                        <li>Minimal conflict optimization.</li>
-                        <li>Data analytics.</li>
-                        <li>Optimal control.</li>
-                        <li>Hardware design.</li>
-                    </ul>
-                </section>
+        <section class="section section_white" id="standards">
+            <div class="section_inner">
+                <div class="section_intro">
+                    <p class="kicker">Standards posture</p>
+                    <h2>Built for review, auditability, and long-term operation.</h2>
+                    <p>
+                        Waajacu work is informed by standards-oriented thinking
+                        across quality, security, software product quality, business
+                        continuity, energy, food safety, and risk management.
+                    </p>
+                </div>
 
-                <section class="panel" aria-labelledby="standards_title">
-                    <h2 id="standards_title">Standards Work</h2>
-                    <p class="body_copy">
-                        Consulting and systems thinking shaped by operational
-                        quality, security, auditability, and long-term maintainability.
-                    </p>
-                    <ul class="cert_list">
-                        <li>ISO 9001</li>
-                        <li>ISO 14001</li>
-                        <li>ISO/IEC 25010</li>
-                        <li>ISO/IEC 27001</li>
-                        <li>ISO/IEC 15504</li>
-                        <li>ISO 47001</li>
-                        <li>ISO 50001</li>
-                        <li>ISO 22000</li>
-                        <li>ISO 22301</li>
-                        <li>ISO 23000</li>
-                        <li>ISO 31000</li>
-                    </ul>
-                </section>
-
-                <section class="panel body_copy" aria-labelledby="trademark_title">
-                    <h2 id="trademark_title">Trademark Notice</h2>
-                    <p>
-                        <span class="brand_mark">WAAJACU TM</span> identifies the
-                        official publications, releases, and services published by
-                        Waajacu.
-                    </p>
-                    <p>
-                        The software and documentation published under Waajacu may
-                        be distributed under their stated open-source licenses, but
-                        those licenses do not grant rights in names, logos, project
-                        branding, or source identity.
-                    </p>
-                    <p>
-                        Official source identity for this website and project
-                        includes <a href="https://waajacu.com">waajacu.com</a> and
-                        the GitHub account
-                        <a href="https://github.com/savethebeesandseeds">savethebeesandseeds</a>.
-                    </p>
-                    <p>
-                        See <a href="./TRADEMARKS.md">TRADEMARKS.md</a> in the
-                        repository for full trademark usage guidance.
-                    </p>
-                </section>
+                <table class="standards_table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Quality</th>
+                            <td>ISO 9001, ISO/IEC 25010, ISO/IEC 15504</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Security</th>
+                            <td>ISO/IEC 27001, applied cryptography, secure multiparty computation</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Continuity</th>
+                            <td>ISO 22301, operational resilience, maintainable delivery artifacts</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Risk</th>
+                            <td>ISO 31000, constraint mapping, documented assumptions</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Systems</th>
+                            <td>ISO 14001, ISO 50001, ISO 22000, ISO 23000, ISO 47001</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </main>
+        </section>
 
-        <footer class="site_footer">
-            <p>
-                Open publication does not waive source identity. Use the name
-                truthfully, and do not present unofficial forks or services as the
-                official Waajacu source.
-            </p>
-        </footer>
-    </div>
+        <section class="section section_light" id="contact">
+            <div class="section_inner contact_layout">
+                <div class="section_intro">
+                    <p class="kicker">Contact</p>
+                    <h2>Start with the project context, constraints, and desired outcome.</h2>
+                    <p>
+                        For project conversations, include the system you are
+                        building, the risk or opportunity you need handled, and the
+                        decision you need to make next.
+                    </p>
+                    <div class="hero_actions">
+                        <a class="button button_primary" href="mailto:contact@waajacu.com?subject=Waajacu%20project%20inquiry">Email Waajacu</a>
+                        <a class="button button_secondary" href="./TRADEMARKS.md">Source identity guidance</a>
+                    </div>
+                </div>
 
-    <script>
-        let clicks = 0;
-        let homeurl = "";
+                <div>
+                    <dl class="contact_panel">
+                        <div class="contact_row">
+                            <dt>Email</dt>
+                            <dd><a href="mailto:contact@waajacu.com">contact@waajacu.com</a></dd>
+                        </div>
+                        <div class="contact_row">
+                            <dt>GitHub</dt>
+                            <dd><a href="https://github.com/savethebeesandseeds">github.com/savethebeesandseeds</a></dd>
+                        </div>
+                        <div class="contact_row">
+                            <dt>Support</dt>
+                            <dd><a href="https://paypal.me/savethebeesandseeds">paypal.me/savethebeesandseeds</a></dd>
+                        </div>
+                        <div class="contact_row">
+                            <dt>Location</dt>
+                            <dd>Colombia, available for remote technical work</dd>
+                        </div>
+                    </dl>
+                    <p class="source_note">
+                        Open publication does not waive source identity. Use the
+                        Waajacu name truthfully and do not present unofficial forks
+                        or services as the official source.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        function renderClicks() {
-            const clicksNode = document.getElementById("clicks");
-
-            if (clicksNode) {
-                clicksNode.textContent = String(clicks);
-            }
-        }
-
-        async function resolveHomeUrl() {
-            const candidates = ["./homeurl.txt", "./src/homeurl.txt"];
-
-            for (const candidate of candidates) {
-                try {
-                    const response = await fetch(candidate, {cache: "no-store"});
-
-                    if (!response.ok) {
-                        continue;
-                    }
-
-                    const text = await response.text();
-                    const firstLine = text
-                        .split(/\r?\n/)
-                        .map((line) => line.trim())
-                        .find((line) => line.length > 0);
-
-                    if (firstLine) {
-                        homeurl = firstLine;
-                        console.log(`homeurl ::: ${homeurl}`);
-                        return;
-                    }
-                } catch (error) {
-                    console.log(`homeurl lookup skipped for ${candidate}`);
-                }
-            }
-
-            console.log("homeurl unavailable");
-        }
-
-        async function reportLucks() {
-            if (!homeurl) {
-                return;
-            }
-
-            const lucksurl = `${homeurl}/lucks`;
-            const payload = JSON.stringify({
-                lucks: {
-                    poetry: 0,
-                    commerce: 0,
-                    waajacu: clicks
-                }
-            });
-
-            if (navigator.sendBeacon) {
-                const beaconPayload = new Blob([payload], {type: "text/plain"});
-
-                if (navigator.sendBeacon(lucksurl, beaconPayload)) {
-                    return;
-                }
-            }
-
-            try {
-                await fetch(lucksurl, {
-                    method: "POST",
-                    headers: {"Content-Type": "text/plain"},
-                    body: payload,
-                    keepalive: true
-                });
-            } catch (error) {
-                console.log("reportLucks failed");
-            }
-        }
-
-        function updateClicks(delta) {
-            clicks += delta;
-            renderClicks();
-            void reportLucks();
-        }
-
-        window.addEventListener("beforeunload", () => {
-            void reportLucks();
-        });
-
-        window.addEventListener("load", async () => {
-            renderClicks();
-
-            const wishButton = document.getElementById("wish_luck");
-            const declineButton = document.getElementById("decline_luck");
-
-            if (wishButton) {
-                wishButton.addEventListener("click", () => {
-                    updateClicks(1);
-                });
-            }
-
-            if (declineButton) {
-                declineButton.addEventListener("click", () => {
-                    updateClicks(-1);
-                });
-            }
-
-            await resolveHomeUrl();
-            console.log(`waka ready, with homeurl ::: ${homeurl || "unavailable"}`);
-        });
-    </script>
+    <footer class="site_footer">
+        <div class="footer_inner">
+            <p>WAAJACU TM | Official source: waajacu.com</p>
+            <p><a href="./TRADEMARKS.md">Trademark notice</a></p>
+        </div>
+    </footer>
 </body>
 </html>
