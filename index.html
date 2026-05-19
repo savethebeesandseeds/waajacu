@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Waajacu | Safe Software, Custom Hardware, AI Systems</title>
+    <title>Waajacu | AI, Cryptography, Hardware, and Secure Software</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Waajacu provides engineering support for safer software, custom hardware, AI systems, applied cryptography, and standards-oriented technical work.">
+    <meta name="description" content="Waajacu provides services in artificial intelligence, applied cryptography, secure software, custom hardware, modeling, optimization, and standards consulting.">
     <meta property="og:title" content="Waajacu">
-    <meta property="og:description" content="Engineering support for safer software, custom hardware, AI systems, and applied cryptography.">
+    <meta property="og:description" content="Services in artificial intelligence, applied cryptography, secure software, custom hardware, modeling, optimization, and standards consulting.">
     <meta property="og:image" content="https://waajacu.com/src/waacamaya_w1.jpg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://waajacu.com/">
@@ -201,6 +201,23 @@
             color: rgba(255, 250, 240, 0.72);
         }
 
+        .hero_services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            max-width: 760px;
+            margin-top: 24px;
+        }
+
+        .hero_services li {
+            padding: 7px 10px;
+            border: 1px solid rgba(255, 250, 240, 0.26);
+            background: rgba(7, 7, 6, 0.48);
+            color: rgba(255, 250, 240, 0.86);
+            font-size: 13px;
+            line-height: 1.2;
+        }
+
         .hero_actions {
             display: flex;
             flex-wrap: wrap;
@@ -250,44 +267,16 @@
             border-color: var(--gold);
         }
 
-        .trust_strip {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            border-top: 1px solid var(--line-light);
-            border-bottom: 1px solid var(--line-light);
-            background: rgba(7, 7, 6, 0.46);
-        }
-
-        .trust_item {
-            padding: 16px 18px;
-            border-right: 1px solid var(--line-light);
-        }
-
-        .trust_item:last-child {
-            border-right: 0;
-        }
-
-        .trust_item strong {
-            display: block;
-            color: var(--white);
-            font-size: 13px;
-            text-transform: uppercase;
-        }
-
-        .trust_item span {
-            display: block;
-            margin-top: 4px;
-            color: rgba(255, 250, 240, 0.72);
-            font-size: 13px;
-            line-height: 1.45;
-        }
-
         .section {
             padding: 78px 0;
         }
 
         .section_light {
             background: var(--paper);
+        }
+
+        #services {
+            padding-top: 28px;
         }
 
         .section_white {
@@ -337,15 +326,15 @@
             background: var(--paper-strong);
         }
 
-        .service_card:nth-child(2) {
+        .service_card:nth-child(3n + 2) {
             border-top: 5px solid var(--blue);
         }
 
-        .service_card:nth-child(3) {
+        .service_card:nth-child(3n) {
             border-top: 5px solid var(--copper);
         }
 
-        .service_card:first-child {
+        .service_card:nth-child(3n + 1) {
             border-top: 5px solid var(--gold);
         }
 
@@ -389,6 +378,13 @@
             width: 7px;
             height: 7px;
             background: var(--gold);
+        }
+
+        .service_note {
+            max-width: 820px;
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 15px;
         }
 
         .method_grid {
@@ -611,26 +607,21 @@
                 font-size: 18px;
             }
 
+            .hero_services {
+                gap: 6px;
+                margin-top: 18px;
+            }
+
+            .hero_services li {
+                font-size: 12px;
+            }
+
             .hero_actions {
                 display: grid;
             }
 
             .button {
                 width: 100%;
-            }
-
-            .trust_strip {
-                grid-template-columns: 1fr;
-            }
-
-            .trust_item {
-                padding: 13px 0;
-                border-right: 0;
-                border-bottom: 1px solid var(--line-light);
-            }
-
-            .trust_item:last-child {
-                border-bottom: 0;
             }
 
             .section {
@@ -709,34 +700,29 @@
                 <p class="kicker">Official source | waajacu.com</p>
                 <h1>Waajacu</h1>
                 <p class="hero_lead">
-                    Engineering support for safer software, custom hardware, AI
-                    systems, and applied cryptography.
+                    Services in artificial intelligence, applied cryptography,
+                    secure software, custom hardware, modeling, optimization, and
+                    standards consulting.
                 </p>
                 <p class="hero_summary">
-                    We help turn ambiguous technical work into documented plans,
-                    tested interfaces, and maintainable systems with clear source
-                    identity.
+                    We help organizations design, review, and build technical
+                    systems where correctness, trust boundaries, and long-term
+                    maintainability matter.
                 </p>
+                <ul class="hero_services" aria-label="Service portfolio">
+                    <li>Artificial intelligence</li>
+                    <li>Natural language processing</li>
+                    <li>Applied cryptography</li>
+                    <li>Secure software</li>
+                    <li>Custom hardware</li>
+                    <li>ISO-oriented consulting</li>
+                </ul>
                 <div class="hero_actions" aria-label="Primary actions">
                     <a class="button button_primary" href="mailto:contact@waajacu.com?subject=Waajacu%20project%20inquiry">Start a technical conversation</a>
-                    <a class="button button_secondary" href="#method">Review the method</a>
+                    <a class="button button_secondary" href="#services">See the services</a>
                 </div>
             </div>
 
-            <div class="trust_strip" aria-label="Trust signals">
-                <div class="trust_item">
-                    <strong>Public source identity</strong>
-                    <span>waajacu.com and GitHub account savethebeesandseeds.</span>
-                </div>
-                <div class="trust_item">
-                    <strong>Standards-aware work</strong>
-                    <span>Quality, security, maintainability, and audit readiness.</span>
-                </div>
-                <div class="trust_item">
-                    <strong>Practical delivery</strong>
-                    <span>Clear scope, visible decisions, and artifacts clients can use.</span>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -745,66 +731,124 @@
             <div class="section_inner">
                 <div class="section_intro">
                     <p class="kicker">Services</p>
-                    <h2>Serious technical work needs a serious interface.</h2>
+                    <h2>What Waajacu sells.</h2>
                     <p>
-                        Waajacu focuses on engineering problems where trust is
-                        earned through clarity: what is being built, what risks
-                        exist, and what evidence shows the work is ready.
+                        The portfolio is technical consulting and delivery for
+                        systems where software, models, protocols, hardware, and
+                        standards meet. The work can start as a review, a prototype,
+                        an implementation plan, or a full build.
                     </p>
                 </div>
 
                 <div class="service_grid">
                     <article class="service_card">
                         <div>
-                            <p class="card_label">Software assurance</p>
-                            <h3>Safer systems and maintainable code paths.</h3>
+                            <p class="card_label">Artificial intelligence</p>
+                            <h3>AI systems that can be evaluated and explained.</h3>
                             <p>
-                                Architecture reviews, implementation support,
-                                interface hardening, and practical plans for
-                                reducing operational risk.
+                                Model selection, workflow design, evaluation plans,
+                                prompt systems, decision support, and production
+                                integration for AI-assisted work.
                             </p>
                         </div>
                         <ul class="deliverables">
-                            <li>Technical review notes</li>
-                            <li>Risk and mitigation map</li>
+                            <li>AI use-case and risk analysis</li>
+                            <li>Evaluation criteria and test sets</li>
+                            <li>Deployment and monitoring plan</li>
+                        </ul>
+                    </article>
+
+                    <article class="service_card">
+                        <div>
+                            <p class="card_label">Natural language processing</p>
+                            <h3>Language workflows for documents, search, and decisions.</h3>
+                            <p>
+                                Classification, extraction, semantic search,
+                                document pipelines, assisted review, and language
+                                interfaces with measurable behavior.
+                            </p>
+                        </div>
+                        <ul class="deliverables">
+                            <li>NLP pipeline design</li>
+                            <li>Document and data extraction</li>
+                            <li>Quality checks and review loops</li>
+                        </ul>
+                    </article>
+
+                    <article class="service_card">
+                        <div>
+                            <p class="card_label">Applied cryptography</p>
+                            <h3>Cryptographic services for protocols and products.</h3>
+                            <p>
+                                Threat modeling, protocol review, key-management
+                                design, secure multiparty computation analysis, and
+                                implementation guidance.
+                            </p>
+                        </div>
+                        <ul class="deliverables">
+                            <li>Protocol and trust-boundary review</li>
+                            <li>Key lifecycle recommendations</li>
+                            <li>Implementation risk notes</li>
+                        </ul>
+                    </article>
+
+                    <article class="service_card">
+                        <div>
+                            <p class="card_label">Secure software</p>
+                            <h3>Software architecture that is easier to trust.</h3>
+                            <p>
+                                Architecture reviews, implementation support,
+                                interface hardening, dependency analysis, and
+                                maintainable delivery plans.
+                            </p>
+                        </div>
+                        <ul class="deliverables">
+                            <li>Architecture and code review</li>
+                            <li>Security and reliability backlog</li>
                             <li>Implementation-ready tasks</li>
                         </ul>
                     </article>
 
                     <article class="service_card">
                         <div>
-                            <p class="card_label">AI and language systems</p>
-                            <h3>Models, workflows, and evaluation that can be explained.</h3>
+                            <p class="card_label">Custom hardware</p>
+                            <h3>Hardware design and embedded integration.</h3>
                             <p>
-                                NLP, decision support, data workflows, and AI
-                                integrations built with explicit assumptions and
-                                measurable behavior.
+                                Device concepts, embedded constraints, hardware and
+                                software integration, prototype planning, and
+                                systems reasoning from component to operation.
                             </p>
                         </div>
                         <ul class="deliverables">
-                            <li>Evaluation criteria</li>
-                            <li>Prompt and workflow design</li>
-                            <li>Operational documentation</li>
+                            <li>Hardware requirements</li>
+                            <li>Prototype path and constraints</li>
+                            <li>Integration risk map</li>
                         </ul>
                     </article>
 
                     <article class="service_card">
                         <div>
-                            <p class="card_label">Hardware and protocols</p>
-                            <h3>Custom devices, secure protocols, and integration plans.</h3>
+                            <p class="card_label">Modeling and standards</p>
+                            <h3>Optimization, analytics, and ISO-oriented consulting.</h3>
                             <p>
-                                Hardware design, applied cryptography, embedded
-                                constraints, and protocol-level reasoning for
-                                systems that must be understood end to end.
+                                Modeling, optimization, data analytics, operational
+                                controls, and standards-informed preparation for
+                                quality, security, risk, and continuity programs.
                             </p>
                         </div>
                         <ul class="deliverables">
-                            <li>System constraints</li>
-                            <li>Threat and trust boundaries</li>
-                            <li>Prototype path</li>
+                            <li>Modeling and optimization plan</li>
+                            <li>Analytics and control assumptions</li>
+                            <li>Standards readiness notes</li>
                         </ul>
                     </article>
                 </div>
+                <p class="service_note">
+                    Typical engagements include technical due diligence, prototype
+                    planning, AI/NLP workflow design, cryptographic protocol review,
+                    secure software implementation, hardware feasibility, and
+                    standards-oriented operational documentation.
+                </p>
             </div>
         </section>
 
