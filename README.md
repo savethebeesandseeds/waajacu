@@ -17,7 +17,6 @@ standards-oriented systems practice.
 
 - [`index.html`](index.html): current public homepage.
 - [`src/waacamaya_w1.jpg`](src/waacamaya_w1.jpg): homepage illustration.
-- [`renderer.html`](renderer.html): experimental canvas and LaTeX rendering page.
 - [`com/index.html`](com/index.html): earlier work-in-progress index material.
 
 ## Local Preview
