@@ -8,9 +8,9 @@ Official source identity for this project is:
 - `waajacu.com`
 - the GitHub account `savethebeesandseeds`
 
-This repository is open source under the MIT license in `LICENSE`. The MIT
-license applies to copyright in the code and documentation. It does not grant
-trademark rights in names, logos, project branding, or source identity.
+Any copyright license that accompanies this repository applies to copyright in
+the code and documentation. It does not grant trademark rights in names, logos,
+project branding, or source identity.
 
 You may use `WAAJACU` to refer to the official project in a truthful and
 non-confusing way, such as for discussion, review, comparison, linking, or
