@@ -149,6 +149,14 @@
             box-shadow: 0 0 0 6px rgba(200, 155, 69, 0.12);
         }
 
+        .tm_mark {
+            position: relative;
+            top: -0.48em;
+            margin-left: 0.22em;
+            font-size: 0.48em;
+            letter-spacing: 0.08em;
+        }
+
         .nav {
             display: flex;
             align-items: center;
@@ -686,7 +694,7 @@
             <div class="topbar">
                 <a class="brand" href="https://waajacu.com" aria-label="Waajacu home">
                     <span class="brand_mark" aria-hidden="true"></span>
-                    <span>WAAJACU TM</span>
+                    <span>WAAJACU<span class="tm_mark" aria-label="trademark">TM</span></span>
                 </a>
                 <nav class="nav" aria-label="Primary navigation">
                     <a href="#services">Services</a>
@@ -1033,7 +1041,7 @@
 
     <footer class="site_footer">
         <div class="footer_inner">
-            <p>WAAJACU TM | Official source: waajacu.com</p>
+            <p>WAAJACU<span class="tm_mark" aria-label="trademark">TM</span> | Official source: waajacu.com</p>
             <p><a href="./TRADEMARKS.md">Trademark notice</a></p>
         </div>
     </footer>
