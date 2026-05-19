@@ -13,3 +13,5 @@ interface.
 
 The integration removes the original demo controls and promo elements, keeps the
 WebGL fluid solver, and runs it as a page-wide pointer-reactive canvas layer.
+The active tuning favors heavier liquid motion over smoky turbulence: broad
+splats, lower curl, stronger pressure solving, and restrained bloom.
