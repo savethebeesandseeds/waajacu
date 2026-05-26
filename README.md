@@ -3,9 +3,10 @@
 Waajacu is a public source marker and static website for work published under
 the `WAAJACU TM` name.
 
-The project presents public engineering work across secure software, applied
-cryptography, artificial intelligence, hardware prototypes, protocol design,
-and standards-informed systems thinking.
+The project presents public engineering work across safe software, custom
+hardware, artificial intelligence, computational diplomacy, conflict resolution,
+applied cryptography, modeling, optimization, protocol design, and
+standards-informed systems thinking.
 
 ## Public Site
 
