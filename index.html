@@ -36,6 +36,7 @@
             font-family: "OCR A Std", "Courier New", monospace;
             font-size: 13px;
             line-height: 1.6;
+            isolation: isolate;
         }
 
         a {
@@ -98,7 +99,19 @@
             color: var(--gold);
         }
 
+        .fluid_canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.36;
+            pointer-events: none;
+        }
+
         .page {
+            position: relative;
+            z-index: 1;
             width: min(1120px, calc(100% - 36px));
             margin: 0 auto;
             padding: 34px 0 48px;
@@ -149,12 +162,12 @@
 
         .box {
             border: 1px solid var(--line);
-            background: var(--near-black);
+            background: rgba(7, 7, 7, 0.92);
             padding: 18px;
         }
 
         .box_red {
-            background: var(--red);
+            background: rgba(89, 5, 5, 0.86);
             color: var(--gold);
         }
 
@@ -262,6 +275,8 @@
     </style>
 </head>
 <body>
+    <canvas class="fluid_canvas" id="fluid_canvas" aria-hidden="true"></canvas>
+
     <div class="page">
         <header class="top">
             <p class="brand">WAAJACU<span class="tm_mark" aria-label="trademark">TM</span></p>
@@ -412,5 +427,6 @@
         wishLuck.addEventListener("click", () => updateClicks(1));
         declineLuck.addEventListener("click", () => updateClicks(-1));
     </script>
+    <script defer src="./rendering-dynamics/fluid-cursor.js"></script>
 </body>
 </html>
