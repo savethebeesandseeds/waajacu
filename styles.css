@@ -1307,3 +1307,751 @@ h1 {
         display: none;
     }
 }
+
+/* Homepage composition inspired by the Waajacu naturalist systems study. */
+.home {
+    --black: #092f29;
+    --black-soft: #123d35;
+    --ivory: #fbf7ee;
+    --paper: #f1e9d8;
+    --ink: #173a32;
+    --gold: #d8a844;
+    --teal: #236b60;
+    --teal-light: #82b8a7;
+    --sans: "Aptos", "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.home .shell {
+    width: min(1180px, calc(100% - 64px));
+}
+
+.home .site-header {
+    min-height: 0;
+    padding-bottom: clamp(70px, 7vw, 108px);
+    background:
+        radial-gradient(circle at 77% 33%, rgba(100, 159, 141, 0.15), transparent 27rem),
+        radial-gradient(circle at 17% 96%, rgba(216, 168, 68, 0.075), transparent 30rem),
+        linear-gradient(112deg, #082c27, #0d3931 58%, #082d28);
+}
+
+.home .site-header > .shell {
+    position: relative;
+    z-index: 2;
+}
+
+.home .site-header::before {
+    z-index: 1;
+    background-image:
+        radial-gradient(circle at 72% 35%, transparent 0 92px, rgba(130, 184, 167, 0.07) 93px 94px, transparent 95px 132px, rgba(130, 184, 167, 0.05) 133px 134px, transparent 135px),
+        linear-gradient(rgba(216, 168, 68, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(216, 168, 68, 0.025) 1px, transparent 1px);
+    background-size: auto, 88px 88px, 88px 88px;
+    mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.55), #000 56%, rgba(0, 0, 0, 0.4));
+}
+
+.home .topbar {
+    min-height: 88px;
+    flex-wrap: nowrap;
+    padding: 0;
+}
+
+.home .nav {
+    order: initial;
+    width: auto;
+    gap: clamp(18px, 3.2vw, 46px);
+    padding-top: 0;
+    border-top: 0;
+}
+
+.home .hero {
+    position: relative;
+    isolation: isolate;
+    grid-template-columns: minmax(0, 1.06fr) minmax(330px, 0.8fr);
+    gap: clamp(26px, 4vw, 66px);
+    min-height: clamp(610px, 70svh, 760px);
+    padding: clamp(62px, 7vw, 96px) 0 clamp(66px, 7vw, 106px);
+}
+
+.home .hero-copy {
+    z-index: 1;
+    align-self: center;
+}
+
+.home .hero-title {
+    max-width: 720px;
+    margin-top: 26px;
+    color: var(--ivory);
+    font-size: clamp(3.1rem, 5.25vw, 5.55rem);
+    font-weight: 480;
+    letter-spacing: -0.055em;
+    line-height: 0.99;
+    text-wrap: balance;
+}
+
+.home .hero-title-line,
+.home .hero-title-accent {
+    display: block;
+}
+
+.home .hero-title-accent {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 430;
+}
+
+.home .hero-lead {
+    max-width: 660px;
+    margin-top: 30px;
+    color: rgba(251, 247, 238, 0.78);
+    font-size: clamp(1.02rem, 1.5vw, 1.24rem);
+    line-height: 1.58;
+    text-wrap: pretty;
+}
+
+.home .hero-actions {
+    margin-top: 34px;
+}
+
+.home .hero-actions .button {
+    min-width: 205px;
+}
+
+.home .hero-facts {
+    grid-template-columns: 0.95fr 1.22fr 0.95fr;
+    max-width: 670px;
+    margin-top: 54px;
+}
+
+.home .hero-facts > div {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    align-items: center;
+    min-height: 68px;
+    padding-top: 15px;
+}
+
+.home .hero-facts > div::before {
+    grid-row: 1 / 3;
+    width: 38px;
+    height: 38px;
+    background: center / contain no-repeat;
+    content: "";
+    opacity: 0.78;
+}
+
+.home .hero-facts > div:nth-child(1)::before {
+    background-image: url("./src/artwork/icons/foundation.png");
+}
+
+.home .hero-facts > div:nth-child(2)::before {
+    background-image: url("./src/artwork/icons/cooperation.png");
+}
+
+.home .hero-facts > div:nth-child(3)::before {
+    background-image: url("./src/artwork/icons/naturalehia-care.png");
+}
+
+.home .hero-facts dt,
+.home .hero-facts dd {
+    grid-column: 2;
+}
+
+.home .hero-visual {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 520px);
+    min-height: 500px;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+}
+
+.home .hero-visual::before,
+.home .hero-visual::after {
+    position: absolute;
+    z-index: -2;
+    border: 1px solid rgba(130, 184, 167, 0.12);
+    border-radius: 50%;
+    content: "";
+}
+
+.home .hero-visual::before {
+    width: 76%;
+    aspect-ratio: 1;
+}
+
+.home .hero-visual::after {
+    width: 48%;
+    aspect-ratio: 1;
+}
+
+.home .hero-botanical {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 66%;
+    opacity: 0.34;
+    filter: saturate(0.88) contrast(1.08);
+    pointer-events: none;
+}
+
+.home .hero-mark {
+    position: relative;
+    width: min(112%, 550px);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+}
+
+.home .hero-mark::before {
+    position: absolute;
+    z-index: -1;
+    inset: 34% 8% 3%;
+    border-radius: 50%;
+    background: rgba(251, 247, 238, 0.2);
+    filter: blur(36px);
+    content: "";
+}
+
+.home .hero-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 24px rgba(3, 21, 17, 0.2));
+}
+
+.home .hero-wave {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: clamp(42px, 5vw, 76px);
+    overflow: hidden;
+    background: var(--ivory);
+    pointer-events: none;
+}
+
+.home .hero-wave::before {
+    position: absolute;
+    right: -8%;
+    bottom: 34%;
+    left: -8%;
+    height: 126%;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    background: var(--black);
+    content: "";
+}
+
+.home .section-paper {
+    background:
+        radial-gradient(circle at 91% 18%, rgba(216, 168, 68, 0.055), transparent 21rem),
+        var(--ivory);
+}
+
+.home .work-intro {
+    position: relative;
+    display: block;
+    margin-bottom: clamp(78px, 8vw, 116px);
+}
+
+.home .work-intro > *:not(.work-hive-art) {
+    position: relative;
+    z-index: 1;
+}
+
+.home .work-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1fr);
+    gap: clamp(50px, 8vw, 110px);
+    max-width: none;
+    margin-top: 42px;
+    align-items: center;
+}
+
+.home .work-intro-grid .work-statement {
+    max-width: 520px;
+    font-size: clamp(2.25rem, 4.25vw, 4.15rem);
+    font-weight: 520;
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+    text-wrap: balance;
+}
+
+.home .work-intro-grid > .work-summary {
+    max-width: 620px;
+    margin: 0;
+    padding: 8px 0 8px clamp(24px, 3vw, 42px);
+    border-left: 2px solid var(--gold);
+    color: var(--muted);
+    font-size: 1.02rem;
+}
+
+.home .work-hive-art {
+    position: absolute;
+    z-index: 0;
+    right: clamp(10px, 2.5vw, 34px);
+    bottom: clamp(-96px, -7vw, -62px);
+    width: clamp(210px, 28vw, 340px);
+    height: auto;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.home .work-catalog-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 36px;
+    margin-bottom: 30px;
+}
+
+.home .work-catalog-heading h2 {
+    max-width: 560px;
+    font-size: clamp(2rem, 3.4vw, 3.45rem);
+    font-weight: 520;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    text-wrap: balance;
+}
+
+.home .project-list {
+    overflow: hidden;
+    border: 1px solid var(--line-light);
+    border-bottom: 0;
+    background: rgba(255, 253, 247, 0.48);
+    box-shadow: 0 18px 50px rgba(29, 50, 43, 0.045);
+}
+
+.home .project-item {
+    grid-template-columns: 56px 138px minmax(210px, 0.78fr) minmax(280px, 1fr);
+    gap: 24px;
+    align-items: center;
+    padding: 30px 28px;
+    border-top: 1px solid var(--line-light);
+}
+
+.home .project-item:first-child {
+    border-top: 0;
+}
+
+.home .project-featured {
+    box-shadow: inset 5px 0 var(--gold);
+    background: rgba(216, 168, 68, 0.055);
+}
+
+.home .project-symbol {
+    display: grid;
+    place-items: center;
+}
+
+.home .project-symbol img {
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    opacity: 0.95;
+}
+
+.home .project-item .experience-meta,
+.home .project-item .experience-title,
+.home .project-item .experience-detail {
+    min-height: 100%;
+    padding-left: 24px;
+    border-left: 1px solid rgba(32, 49, 44, 0.12);
+}
+
+.home .project-item .experience-title,
+.home .project-item .experience-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home .project-item .experience-title h3 {
+    font-size: clamp(1.35rem, 1.85vw, 1.85rem);
+}
+
+.home .project-item .experience-detail {
+    font-size: 0.93rem;
+}
+
+.home .project-item .project-link {
+    align-self: flex-start;
+    margin-top: 16px;
+}
+
+.home .section-link-row {
+    min-height: 96px;
+    margin-top: 0;
+    padding: 18px 28px;
+    border: 1px solid var(--line-light);
+    background: rgba(255, 253, 247, 0.48);
+}
+
+.home .work-sprig {
+    width: min(250px, 34vw);
+    height: 74px;
+    background: center 48% / 112px auto no-repeat url("./src/artwork/ginkgo-study.png");
+    opacity: 0.28;
+}
+
+.home .section-about {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 78% 48%, rgba(114, 155, 137, 0.08), transparent 31rem),
+        linear-gradient(108deg, #f3ebdc 0%, #ebe3d6 58%, #ebe3d6 100%);
+}
+
+.home .about-layout {
+    grid-template-columns: minmax(310px, 0.78fr) minmax(420px, 1.22fr);
+    gap: clamp(52px, 7vw, 104px);
+    align-items: center;
+}
+
+.home .about-content {
+    position: relative;
+    z-index: 2;
+}
+
+.home .about-heading h2 {
+    margin-top: 30px;
+    font-size: clamp(2.75rem, 4.7vw, 4.9rem);
+}
+
+.home .about-copy {
+    max-width: 500px;
+    padding-top: 34px;
+}
+
+.home .about-lead {
+    font-size: clamp(1.16rem, 1.8vw, 1.55rem);
+}
+
+.home .about-links {
+    align-items: center;
+}
+
+.home .about-links .button {
+    min-width: 174px;
+}
+
+.home .about-visual {
+    position: relative;
+    min-height: 470px;
+    display: grid;
+    place-items: center;
+}
+
+.home .about-visual::before {
+    position: absolute;
+    inset: 13% 10%;
+    border-radius: 50%;
+    background: rgba(251, 247, 238, 0.46);
+    filter: blur(32px);
+    content: "";
+}
+
+.home .about-visual img {
+    position: relative;
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    opacity: 0.94;
+    mix-blend-mode: multiply;
+}
+
+.home .contact-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: #dfe9dd;
+}
+
+.home .contact-section::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: center / cover no-repeat url("./src/artwork/contact-scientific-field.png");
+    content: "";
+    opacity: 0.82;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.home .contact-section::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(90deg, rgba(223, 233, 221, 0.82) 0%, rgba(223, 233, 221, 0.62) 34%, rgba(223, 233, 221, 0.12) 64%, transparent 78%);
+    content: "";
+    pointer-events: none;
+}
+
+.home .contact-layout {
+    position: relative;
+    z-index: 1;
+    grid-template-columns: minmax(360px, 1fr) minmax(300px, 0.72fr);
+    gap: clamp(54px, 10vw, 150px);
+    align-items: center;
+}
+
+.home .contact-content {
+    position: relative;
+    z-index: 2;
+}
+
+.home .contact-copy {
+    max-width: 610px;
+    margin-top: 34px;
+}
+
+.home .contact-visual {
+    position: relative;
+    min-height: 320px;
+    display: grid;
+    place-items: center;
+}
+
+.home .contact-visual img {
+    width: min(100%, 430px);
+    max-height: 390px;
+    object-fit: contain;
+    opacity: 0.78;
+    mix-blend-mode: multiply;
+}
+
+.home .site-footer {
+    position: relative;
+    overflow: hidden;
+    background:
+        repeating-radial-gradient(ellipse at 106% 110%, transparent 0 18px, rgba(216, 168, 68, 0.085) 19px 20px),
+        var(--black);
+}
+
+@media (max-width: 1040px) {
+    .home .hero {
+        grid-template-columns: minmax(0, 1.08fr) minmax(270px, 0.64fr);
+        gap: 18px;
+    }
+
+    .home .hero-title {
+        font-size: clamp(2.8rem, 5vw, 4.4rem);
+    }
+
+    .home .project-item {
+        grid-template-columns: 48px 112px minmax(190px, 0.82fr) minmax(250px, 1fr);
+        gap: 18px;
+        padding: 26px 22px;
+    }
+
+    .home .project-item .experience-meta,
+    .home .project-item .experience-title,
+    .home .project-item .experience-detail {
+        padding-left: 18px;
+    }
+}
+
+@media (max-width: 760px) {
+    .home .shell {
+        width: min(100% - 40px, 640px);
+    }
+
+    .home .topbar {
+        flex-wrap: wrap;
+        padding: 18px 0;
+    }
+
+    .home .nav {
+        order: 2;
+        width: 100%;
+        gap: 10px 20px;
+        padding-top: 14px;
+        border-top: 1px solid var(--line-dark);
+    }
+
+    .home .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding-top: 52px;
+    }
+
+    .home .hero-botanical {
+        object-position: 58% center;
+        opacity: 0.29;
+    }
+
+    .home .hero-title {
+        max-width: 620px;
+        font-size: clamp(2.75rem, 11vw, 4.5rem);
+    }
+
+    .home .hero-visual {
+        width: min(100%, 430px);
+        min-height: 370px;
+        justify-self: center;
+    }
+
+    .home .hero-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .home .hero-facts > div,
+    .home .hero-facts > div + div {
+        padding: 12px 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line-dark);
+    }
+
+    .home .work-intro-grid,
+    .home .about-layout,
+    .home .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .home .work-intro-grid {
+        gap: 34px;
+    }
+
+    .home .work-intro-grid > .work-summary {
+        padding-left: 24px;
+    }
+
+    .home .work-hive-art {
+        right: -12px;
+        bottom: -76px;
+        width: 190px;
+        opacity: 0.14;
+    }
+
+    .home .work-catalog-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .home .project-item {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 18px 20px;
+        padding: 28px 24px;
+    }
+
+    .home .project-symbol {
+        grid-row: 1;
+        grid-column: 1;
+        align-self: start;
+    }
+
+    .home .project-item .experience-meta {
+        grid-row: 1;
+        grid-column: 2;
+        min-height: 0;
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .home .project-item .experience-title,
+    .home .project-item .experience-detail {
+        grid-column: 2;
+        min-height: 0;
+        padding: 0;
+        border-left: 0;
+    }
+
+    .home .section-link-row {
+        align-items: flex-start;
+    }
+
+    .home .work-sprig {
+        width: 150px;
+    }
+
+    .home .about-visual {
+        min-height: 320px;
+    }
+
+    .home .about-links {
+        align-items: flex-start;
+    }
+
+    .home .contact-visual {
+        min-height: 240px;
+    }
+
+    .home .contact-section::before {
+        background-position: 68% center;
+        background-size: auto 100%;
+        opacity: 0.58;
+    }
+
+    .home .contact-section::after {
+        background: rgba(223, 233, 221, 0.38);
+    }
+}
+
+@media (max-width: 520px) {
+    .home .nav a:not(.nav-contact) {
+        font-size: 0.68rem;
+    }
+
+    .home .hero-actions .button {
+        width: 100%;
+    }
+
+    .home .hero-visual {
+        min-height: 300px;
+    }
+
+    .home .hero-botanical {
+        object-position: 61% center;
+        opacity: 0.25;
+    }
+
+    .home .project-item {
+        grid-template-columns: 44px minmax(0, 1fr);
+        padding: 24px 18px;
+    }
+
+    .home .project-symbol img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .home .section-link-row {
+        padding: 20px 18px;
+    }
+
+    .home .work-hive-art {
+        right: -20px;
+        bottom: -64px;
+        width: 148px;
+        opacity: 0.13;
+    }
+
+    .home .work-sprig,
+    .home .about-visual,
+    .home .contact-visual {
+        display: none;
+    }
+}
+
+@media print {
+    .home .site-header {
+        padding-bottom: 0;
+        background: #fff;
+        color: #000;
+    }
+
+    .home .hero-wave,
+    .home .hero-botanical,
+    .home .about-visual,
+    .home .contact-visual {
+        display: none;
+    }
+}
