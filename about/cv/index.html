@@ -3,87 +3,134 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Curriculum vitae of Santiago Restrepo">
-    <title>Santiago Restrepo - Curriculum Vitae</title>
+    <meta name="description" content="Curriculum vitae of Santiago Restrepo, hosted by Waajacu.">
+    <meta name="theme-color" content="#080a09">
+    <title>Santiago Restrepo | Curriculum Vitae</title>
+    <link rel="canonical" href="https://waajacu.com/about/cv/">
+    <link rel="icon" href="../../favicon.ico" sizes="any">
+    <link rel="stylesheet" href="../../styles.css">
     <style>
-        :root {
-            color-scheme: light dark;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
         html,
         body {
             height: 100%;
-            margin: 0;
         }
 
-        body {
+        body.cv-page {
             display: grid;
-            grid-template-rows: auto 1fr;
-            background: #181818;
+            grid-template-rows: auto minmax(0, 1fr);
+            background: var(--black);
         }
 
-        header {
+        .cv-header {
+            background: var(--black);
+            color: var(--ivory);
+        }
+
+        .cv-header .topbar {
+            min-height: 76px;
+        }
+
+        .cv-actions {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 0.75rem 1rem;
-            color: #f4f4f4;
-            background: #111;
-            border-bottom: 1px solid #333;
+            gap: 12px;
         }
 
-        h1 {
-            margin: 0;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        a {
-            color: #f4f4f4;
-        }
-
-        header a {
-            padding: 0.45rem 0.7rem;
-            border: 1px solid #666;
-            border-radius: 0.35rem;
+        .cv-actions a {
+            color: rgba(244, 237, 222, 0.72);
+            font-family: var(--mono);
+            font-size: 0.72rem;
             text-decoration: none;
-            white-space: nowrap;
         }
 
-        object {
+        .cv-actions a:hover,
+        .cv-actions a:focus-visible {
+            color: var(--gold);
+        }
+
+        .cv-actions .open-pdf {
+            padding: 9px 13px;
+            border: 1px solid rgba(207, 157, 70, 0.58);
+            color: var(--gold);
+        }
+
+        .cv-actions .open-pdf:hover,
+        .cv-actions .open-pdf:focus-visible {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .cv-document {
+            min-height: 0;
+            padding: 12px;
+            background: #151715;
+        }
+
+        .cv-document object {
             width: 100%;
             height: 100%;
             border: 0;
-            background: #fff;
+            background: #ffffff;
         }
 
         .fallback {
-            padding: 2rem;
-            color: #111;
-            background: #fff;
+            min-height: 100%;
+            padding: 48px;
+            background: var(--ivory);
+            color: var(--ink);
+        }
+
+        .fallback a {
+            color: var(--oxblood);
+            font-weight: 700;
+            text-underline-offset: 0.2em;
+        }
+
+        @media (max-width: 560px) {
+            .cv-header .topbar {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px 0;
+            }
+
+            .cv-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .cv-document {
+                padding: 0;
+            }
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Santiago Restrepo - Curriculum Vitae</h1>
-        <a href="/src/documents/curriculum_Santiago_Restrepo_cz.pdf">Open PDF</a>
+<body class="cv-page">
+    <a class="skip-link" href="#cv-document">Skip to CV document</a>
+    <header class="cv-header">
+        <div class="shell topbar">
+            <a class="brand" href="../../" aria-label="Waajacu home">
+                <span class="brand-dot" aria-hidden="true"></span>
+                <span>Waajacu<sup>TM</sup></span>
+            </a>
+            <h1 class="visually-hidden">Santiago Restrepo — Curriculum Vitae</h1>
+            <nav class="cv-actions" aria-label="Curriculum vitae navigation">
+                <a href="../">Back to profile</a>
+                <a class="open-pdf" href="../../src/documents/curriculum_Santiago_Restrepo_cz.pdf">Open PDF ↗</a>
+            </nav>
+        </div>
     </header>
-    <object
-        data="/src/documents/curriculum_Santiago_Restrepo_cz.pdf#view=FitH"
-        type="application/pdf"
-        aria-label="Curriculum vitae of Santiago Restrepo"
-    >
-        <p class="fallback">
-            Your browser cannot display the PDF here.
-            <a href="/src/documents/curriculum_Santiago_Restrepo_cz.pdf">Open the CV directly.</a>
-        </p>
-    </object>
+
+    <main class="cv-document" id="cv-document">
+        <object
+            data="../../src/documents/curriculum_Santiago_Restrepo_cz.pdf#view=FitH"
+            type="application/pdf"
+            aria-label="Curriculum vitae of Santiago Restrepo">
+            <p class="fallback">
+                Your browser cannot display the PDF here.
+                <a href="../../src/documents/curriculum_Santiago_Restrepo_cz.pdf">Open Santiago Restrepo's CV directly.</a>
+            </p>
+        </object>
+    </main>
 </body>
 </html>

@@ -1,12 +1,12 @@
 # Waajacu
 
-Waajacu is a public source marker and static website for work published under
-the `WAAJACU TM` name.
+Waajacu is a public-source research and engineering organization and the static
+website for work published under the `WAAJACU TM` name.
 
-The project presents public engineering work across safe software, custom
-hardware, artificial intelligence, computational diplomacy, conflict resolution,
-applied cryptography, modeling, optimization, protocol design, and
-standards-informed systems thinking.
+The project presents open software, research, books, and educational tools
+across learning, care, cooperation, culture, conservation, artificial
+intelligence, applied cryptography, mathematical modeling, robotics, and
+foundational engineering.
 
 ## Public Site
 
@@ -17,8 +17,15 @@ standards-informed systems thinking.
 ## Repository Map
 
 - [`index.html`](index.html): current public homepage.
-- [`src/waacamaya_w1.jpg`](src/waacamaya_w1.jpg): homepage illustration.
+- [`styles.css`](styles.css): shared site visual system.
+- [`robots.txt`](robots.txt) and [`sitemap.xml`](sitemap.xml): crawler guidance and public route index.
+- [`about/index.html`](about/index.html): organization and contributor profiles.
+- [`about/cv/index.html`](about/cv/index.html): browser-viewable curriculum vitae.
+- [`src/documents/curriculum_Santiago_Restrepo_cz.pdf`](src/documents/curriculum_Santiago_Restrepo_cz.pdf): source CV document.
+- [`src/waajacu-logo-transparent.png`](src/waajacu-logo-transparent.png): transparent homepage logo.
+- [`src/waacamaya_w1.jpg`](src/waacamaya_w1.jpg): earlier macaw illustration retained as a source asset.
 - [`favicon.ico`](favicon.ico): browser favicon generated from the homepage illustration.
+- [`rendering-dynamics`](rendering-dynamics): archived, licensed fluid-rendering experiment; it is not loaded by the homepage.
 
 ## Local Preview
 
