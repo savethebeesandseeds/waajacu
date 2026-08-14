@@ -1413,6 +1413,11 @@ h1 {
     text-wrap: pretty;
 }
 
+.home .hero-lead strong {
+    color: var(--gold);
+    font-weight: 650;
+}
+
 .home .hero-actions {
     margin-top: 34px;
 }
