@@ -556,11 +556,6 @@ h1 {
     color: var(--gold-dark);
 }
 
-.resilient-project-link[aria-busy="true"] {
-    opacity: 0.58;
-    cursor: progress;
-}
-
 .section-link-row {
     display: flex;
     align-items: center;
@@ -826,13 +821,19 @@ h1 {
     position: relative;
 }
 
+.subpage .shell {
+    width: min(1060px, calc(100% - 64px));
+}
+
 .subpage-hero {
-    max-width: 970px;
+    max-width: 900px;
     padding: clamp(82px, 12vw, 160px) 0 clamp(92px, 13vw, 172px);
 }
 
 .subpage-hero h1 {
-    font-size: clamp(3.7rem, 8vw, 7.6rem);
+    font-size: clamp(2.8rem, 4.6vw, 4.5rem);
+    line-height: 0.98;
+    text-wrap: balance;
 }
 
 .subpage-lead {
@@ -1144,7 +1145,7 @@ h1 {
     }
 
     .subpage-hero h1 {
-        font-size: clamp(3.25rem, 16vw, 5rem);
+        font-size: clamp(2.25rem, 10vw, 3.25rem);
     }
 
     .eyebrow {
