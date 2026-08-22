@@ -1641,11 +1641,17 @@ h1 {
 }
 
 .home .project-item {
+    position: relative;
+    isolation: isolate;
     grid-template-columns: 56px 138px minmax(210px, 0.78fr) minmax(280px, 1fr);
     gap: 24px;
     align-items: center;
     padding: 30px 28px;
     border-top: 1px solid var(--line-light);
+    cursor: pointer;
+    transition:
+        background-color 180ms ease,
+        box-shadow 180ms ease;
 }
 
 .home .project-item:first-child {
@@ -1655,6 +1661,14 @@ h1 {
 .home .project-featured {
     box-shadow: inset 5px 0 var(--gold);
     background: rgba(216, 168, 68, 0.055);
+}
+
+.home .project-item:hover,
+.home .project-item:focus-within {
+    background: rgba(216, 168, 68, 0.12);
+    box-shadow:
+        inset 5px 0 var(--gold),
+        inset 0 0 0 1px rgba(0, 104, 96, 0.38);
 }
 
 .home .project-symbol {
@@ -1667,6 +1681,15 @@ h1 {
     height: 54px;
     object-fit: contain;
     opacity: 0.95;
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+}
+
+.home .project-item:hover .project-symbol img,
+.home .project-item:focus-within .project-symbol img {
+    opacity: 1;
+    transform: scale(1.08);
 }
 
 .home .project-item .experience-meta,
@@ -1695,6 +1718,13 @@ h1 {
 .home .project-item .project-link {
     align-self: flex-start;
     margin-top: 16px;
+}
+
+.home .project-item .project-link::after {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    content: "";
 }
 
 .home .section-link-row {
