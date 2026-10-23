@@ -1428,10 +1428,44 @@ h1 {
     min-width: 205px;
 }
 
+.home .hero-radio {
+    display: inline-grid;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    max-width: 100%;
+    min-height: 44px;
+    margin-top: 18px;
+    padding: 4px 0;
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.home .hero-radio-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.home .hero-radio:hover,
+.home .hero-radio:focus-visible {
+    color: var(--ivory);
+}
+
+.home .hero-radio:hover .hero-radio-label,
+.home .hero-radio:focus-visible .hero-radio-label {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
 .home .hero-facts {
     grid-template-columns: 0.95fr 1.22fr 0.95fr;
     max-width: 670px;
-    margin-top: 54px;
+    margin-top: 28px;
 }
 
 .home .hero-facts > div {
