@@ -1422,7 +1422,7 @@ h1 {
 
 .home .hero-actions {
     display: grid;
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
     max-width: 560px;
     margin-top: 34px;
 }
@@ -1431,9 +1431,13 @@ h1 {
     min-width: 0;
 }
 
+.home .button-source {
+    grid-column: 1 / -1;
+    min-height: 58px;
+}
+
 .home .button-radio {
     display: grid;
-    grid-column: 1 / -1;
     grid-template-columns: 28px minmax(0, 1fr) auto;
     gap: 12px;
     min-height: 58px;
@@ -1842,7 +1846,7 @@ h1 {
     min-width: 174px;
 }
 
-.home .about-radio {
+.home .about-trademark {
     flex-basis: 100%;
     min-width: 0;
     max-width: 100%;
